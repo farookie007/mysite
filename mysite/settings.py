@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    # user defined APPS
+    # pip installed APPs
+    "taggit",
+    # user defined APPs
     "blog.apps.BlogConfig",
 ]
 
@@ -124,3 +125,17 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Retrieving the App password for the email backend
+with open(BASE_DIR / "__pass__.txt", "r") as fp:
+    pwd = fp.read()
+
+# Email server configuration
+# EMAIL_HOST = "smtp.googlemail.com"
+# EMAIL_HOST_USER = "rookiemaster001@gmail.com"
+# EMAIL_HOST_PASSWORD = pwd
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+# Uncomment the next line to use the console email backend
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
