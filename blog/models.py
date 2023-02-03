@@ -54,7 +54,7 @@ class Post(models.Model):
     status = models.CharField(
         max_length=2,
         choices=Status.choices,
-        default=Status.DRAFT,
+        default=Status.PUBLISHED,
     )
     objects = models.Manager()  # the default manager
     published = PublishedManager()  # our custom manager
